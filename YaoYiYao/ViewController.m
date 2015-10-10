@@ -25,10 +25,13 @@
     CGFloat h;
     CGFloat x;
     CGFloat y;
+    NSInteger i;
+    CGFloat r;
 }
 @property (weak, nonatomic) IBOutlet UILabel *myLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *myImageview;
+@property (weak, nonatomic) IBOutlet UIScrollView *myScroll;
 
 @end
 
@@ -36,7 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    i = 0;
+    self.view.layer.contents = (id)[UIImage imageNamed:@"backimg"].CGImage;
     isFullScreen = NO;
     if (!ta) {
         ta = [self.storyboard instantiateViewControllerWithIdentifier:@"TABLE"];
@@ -46,6 +50,17 @@
     array = [NSMutableArray array];
     [UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
     [self becomeFirstResponder];
+    NSString *extension = @"jpg";
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSArray *contents = [fileManager contentsOfDirectoryAtPath:path error:nil];
+    for (NSString *fileName in contents) {
+        if ([[fileName pathExtension] isEqualToString:extension]) {
+            [fileManager removeItemAtPath:[path stringByAppendingPathComponent:fileName] error:nil];
+        }
+    }
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pinchView:)];
+    [self.myImageview addGestureRecognizer:pan];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,6 +88,7 @@
     h = self.myImageview.frame.size.height;
     x = self.myImageview.frame.origin.x;
     y = self.myImageview.frame.origin.y;
+    r = self.view.bounds.size.width/self.view.bounds.size.height;
 }
 
 - (void)getMoreImageWithNum:(NSInteger)num {
@@ -138,13 +154,12 @@
     
 }
 
-
-
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     self.myLabel.hidden = YES;
     self.secondLabel.hidden = YES;
-    
 }
+
+
 
 
 - (IBAction)myclick:(id)sender {
@@ -241,20 +256,66 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *img = [info objectForKey:UIImagePickerControllerOriginalImage];
-    [self saveImage:img withName:@"currentImage.jpg"];
+    [self saveImage:img withName:[NSString stringWithFormat:@"img%ld.jpg",(long)i++]];
     self.myImageview.image =img;
     isFullScreen = NO;
+    
+    [self createScrollImgWithNum:i];
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)createScrollImgWithNum:(NSInteger)num {
+    int a = 0;
+    CGFloat sH = self.myScroll.frame.size.height;
+    CGFloat sW = sH*r;
+    NSData *imgData;
+    UIImage *img = [UIImage imageNamed:@"firstimg"];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changCharge:)];
+    UIImageView *imgview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, sW, sH)];
+    imgview.image = img;
+    imgview.userInteractionEnabled = YES;
+    [imgview addGestureRecognizer:tap];
+    [self.myScroll addSubview:imgview];
+    while (num-- > 0) {
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changCharge:)];
+         NSString *imgPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:[NSString stringWithFormat:@"img%ld.jpg",(long)a++]];
+        imgData = [NSData dataWithContentsOfFile:imgPath];
+        img = [UIImage imageWithData:imgData];
+        UIImageView *imgview = [[UIImageView alloc] initWithFrame:CGRectMake(a*sW, 0, sW, sH)];
+        imgview.image = img;
+        self.myScroll.contentSize = CGSizeMake(sW*num, sH);
+        [imgview addGestureRecognizer:tap];
+        imgview.userInteractionEnabled = YES;
+        [self.myScroll addSubview:imgview];
+    }
     
 }
+
+- (void)changCharge:(UITapGestureRecognizer *)tapa {
+    UIImageView *imgV = (UIImageView *)tapa.view;
+    self.myImageview.image = imgV.image;
+}
+//- (UIImage *)thumbnailWithImage:(UIImage *)image frame:(CGRect)aframe
+//{
+//    UIImage *newImage;
+//    if (image) {
+//        UIGraphicsBeginImageContext(aframe.size);
+//        [image drawInRect:aframe];
+//        newImage = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsEndImageContext();
+//    }
+//    return newImage;
+//}
 
 - (void)saveImage:(UIImage *)currentImage withName:(NSString *)imageName {
     NSData *imgData = UIImageJPEGRepresentation(currentImage, 0.5);
     NSString *imgPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imageName];
     [imgData writeToFile:imgPath atomically:NO];
+    NSLog(@"%@--------%ld",imgPath,(long)i);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -264,14 +325,28 @@
     if (CGRectContainsPoint(self.myImageview.frame, touchPoint)) {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:1.0];
-        
-        if (isFullScreen) {
-            self.myImageview.frame = CGRectMake(x,y, w, h);
-        }
-        else {
-            self.myImageview.frame = CGRectMake(w/4, h/4, w/2, h/2);
-        }
+        self.myImageview.frame = CGRectMake(w/4, h/4, w/2, h/2);
         [UIView commitAnimations];
+    }
+}
+
+- (void) pinchView:(UIPinchGestureRecognizer *)pinchGestureRecognizer
+{
+    UIView *view = pinchGestureRecognizer.view;
+    if (pinchGestureRecognizer.state == UIGestureRecognizerStateBegan || pinchGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        view.transform = CGAffineTransformScale(view.transform, pinchGestureRecognizer.scale, pinchGestureRecognizer.scale);
+        pinchGestureRecognizer.scale = 1;
+    }
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    isFullScreen = !isFullScreen;
+    UITouch *touch = [touches anyObject];
+    CGPoint touchPoint = [touch locationInView:self.view];
+    self.myImageview.center = touchPoint;
+    if (CGRectContainsPoint(self.myScroll.frame, self.myImageview.center)) {
+        [self createScrollImgWithNum:i];
+        self.myImageview.image = nil;
     }
 }
 @end
