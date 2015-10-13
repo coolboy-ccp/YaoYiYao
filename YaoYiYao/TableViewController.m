@@ -42,7 +42,6 @@
     CGPoint contentoffset = self.tableView.contentOffset;
     CGRect frame = self.tableView.frame;
     if (contentoffset.y == self.tableView.contentSize.height - frame.size.height) {
-        NSLog(@"fewfefefefefe");
         if (cout < self.allCout) {
             cout += 20;
             if (self.delegate && [self.delegate respondsToSelector:@selector(getMoreImageWithNum:)]) {

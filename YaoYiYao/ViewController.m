@@ -177,7 +177,6 @@
         textField.placeholder = @"Something you want to say";
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(alertTextFieldChanged:) name:UITextFieldTextDidChangeNotification object:textField];
     }];
-    
     [self presentViewController:alertVC animated:YES completion:nil];
 
 }
@@ -315,7 +314,6 @@
     NSData *imgData = UIImageJPEGRepresentation(currentImage, 0.5);
     NSString *imgPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:imageName];
     [imgData writeToFile:imgPath atomically:NO];
-    NSLog(@"%@--------%ld",imgPath,(long)i);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
