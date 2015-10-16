@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2773C0B1-6A2B-4891-8BCF-B8BCFD1C9A52</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YaoYiYao</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5C153D0840DC7DCC962C87E59ED7F1FCE1F12174</key>
+		<string>https://github.com/coolboy-ccp/YaoYiYao.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>YaoYiYao.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5C153D0840DC7DCC962C87E59ED7F1FCE1F12174</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/coolboy-ccp/YaoYiYao.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5C153D0840DC7DCC962C87E59ED7F1FCE1F12174</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5C153D0840DC7DCC962C87E59ED7F1FCE1F12174</string>
+			<key>IDESourceControlWCCName</key>
+			<string>YaoYiYao</string>
+		</dict>
+	</array>
+</dict>
+</plist>

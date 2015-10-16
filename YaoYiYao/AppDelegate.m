@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "AFNetworkReachabilityManager.h"
 @interface AppDelegate ()
 
 @end
@@ -17,7 +17,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self searchReachabilityStatus];
     return YES;
+}
+
+- (void)searchReachabilityStatus {
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"WiFi");
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                NSLog(@"phoneNet");
+                break;
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"unknown");
+                break;
+            default:
+                break;
+        }
+    }];
+   // [manager startMonitoring];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

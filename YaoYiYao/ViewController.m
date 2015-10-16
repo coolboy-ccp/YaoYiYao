@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "TableViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import "PlayMusicViewController.h"
 @interface ViewController ()<TableViewControllerDelegate,UIActionSheetDelegate>
 {
     UITextField *myTextField;
@@ -27,6 +29,10 @@
     CGFloat y;
     NSInteger i;
     CGFloat r;
+    CGFloat scaleInt;
+    YaoYiYaoBaseRequest *request;
+    CGRect newRect;
+    CGSize sizeO;
 }
 @property (weak, nonatomic) IBOutlet UILabel *myLabel;
 @property (weak, nonatomic) IBOutlet UILabel *secondLabel;
@@ -39,6 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    request = [[YaoYiYaoBaseRequest alloc] init];
     i = 0;
     self.view.layer.contents = (id)[UIImage imageNamed:@"backimg"].CGImage;
     isFullScreen = NO;
@@ -59,8 +66,15 @@
             [fileManager removeItemAtPath:[path stringByAppendingPathComponent:fileName] error:nil];
         }
     }
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pinchView:)];
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    UIPinchGestureRecognizer *pin = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchView:)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapView:)];
+    tap.numberOfTouchesRequired = 1;
+    tap.numberOfTapsRequired = 2;
+    self.myImageview.userInteractionEnabled = YES;
+    [self.myImageview addGestureRecognizer:pin];
     [self.myImageview addGestureRecognizer:pan];
+    [self.myImageview addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,7 +93,7 @@
     self.navigationController.navigationBarHidden = YES;
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
 }
 
@@ -89,6 +103,8 @@
     x = self.myImageview.frame.origin.x;
     y = self.myImageview.frame.origin.y;
     r = self.view.bounds.size.width/self.view.bounds.size.height;
+    [self addObserver:self forKeyPath:@"myImageview.bounds" options:NSKeyValueObservingOptionNew |
+     NSKeyValueObservingOptionOld context:nil];
 }
 
 - (void)getMoreImageWithNum:(NSInteger)num {
@@ -142,15 +158,54 @@
 
 }
 
-- (IBAction)pushyem:(id)sender {
-    if (array.count > 0) {
-        ta.arra = [NSArray arrayWithArray:array];
-        ta.delegate = self;
-        [self.navigationController pushViewController:ta animated:YES];
+void soundCompleteCallback(SystemSoundID soundId,void *clientData) {
+    AudioServicesRemoveSystemSoundCompletion(soundId);
+    UIImageView *name = (__bridge UIImageView *)clientData;
+    [name stopAnimating];
+    
+}
+
+- (void)playSoundEffectWithName:(NSString *)name {
+    NSString *audioFile = [[NSBundle mainBundle] pathForResource:name ofType:nil];
+    NSURL *fileUrl = [NSURL fileURLWithPath:audioFile];
+    SystemSoundID soundId = 0;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)(fileUrl), &soundId);
+    AudioServicesAddSystemSoundCompletion(soundId, NULL, NULL, soundCompleteCallback, (__bridge void *)self.myImageview);
+    if (SIMULATOR) {
+        AudioServicesPlaySystemSound(soundId);
     }
     else {
-        [self getImageWithCout:0 andMore:NO];
+       AudioServicesPlayAlertSound(soundId);
     }
+}
+
+- (IBAction)pushyem:(id)sender {
+    [self playSoundEffectWithName:@"sound1.wav"];
+    [self.myImageview stopAnimating];
+    NSMutableArray *arr1 = [NSMutableArray array];
+    for (int j = 1; j<5; j++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"ani_%d",j]];
+        [arr1 addObject:image];
+    }
+    [self.myImageview setAnimationDuration:0.5];
+    [self.myImageview setAnimationImages:arr1];
+    [self.myImageview startAnimating];
+//    NSDictionary *dic = @{@"phoneno":@"18705183215",@"cardnum":@"5",@"key":@"ef69b42e243251b78799716036173c5d"};
+//    dic = @{@"url":@"CBx-6iBHdZlqwcOKG4E4otIH5obGepVJXPaBC8u_WgtAVjhsRuLb_9mKzeP0BVf2aZSohiEMbTmNifBE2s1D0uuoI843qjxeSGQP_ZIlBZC"};
+//    [request serviceRequestWithPostURL:@"http://zhidao.baidu.com/link" parameters:dic successBlock:^(id response) {
+//        NSLog(@"response-----%@",response[@"reason"]);
+//    } failureBlock:^(NSString *errInfo) {
+//
+//        NSLog(@"errInfo------%@",errInfo);
+//    }];
+//    if (array.count > 0) {
+//        ta.arra = [NSArray arrayWithArray:array];
+//        ta.delegate = self;
+//        [self.navigationController pushViewController:ta animated:YES];
+//    }
+//    else {
+//        [self getImageWithCout:0 andMore:NO];
+//    }
     
 }
 
@@ -191,15 +246,21 @@
         ok.enabled = YES;
     }
 }
+- (IBAction)playMusic:(UIButton *)sender {
+    PlayMusicViewController *palyMusicVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PlayView"];
+    [self.navigationController pushViewController:palyMusicVC animated:YES];
+}
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    self.myLabel.hidden = NO;
-    [UIView animateWithDuration:0.5 animations:^{
-        self.myLabel.text = myTextField.text ? myTextField.text : @"shanshan";
-        self.myLabel.font = [UIFont systemFontOfSize:20.0];
-        self.secondLabel.text = myTextField1.text ? myTextField1.text : @"i love you so much !";
-        self.secondLabel.hidden = NO;
-    } completion:nil];
+    [self.myImageview stopAnimating];
+    NSMutableArray *arr1 = [NSMutableArray array];
+    for (int j = 1; j<8; j++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"ani_0%d",j]];
+        [arr1 addObject:image];
+    }
+    [self.myImageview setAnimationDuration:0.5];
+    [self.myImageview setAnimationImages:arr1];
+    [self.myImageview startAnimating];
 }
 
 - (IBAction)takePhoto:(UIButton *)sender {
@@ -263,6 +324,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -278,7 +340,13 @@
     imgview.image = img;
     imgview.userInteractionEnabled = YES;
     [imgview addGestureRecognizer:tap];
-    [self.myScroll addSubview:imgview];
+    if (num == -1) {
+        
+    }
+    else {
+         [self.myScroll addSubview:imgview];
+    }
+     newRect = [self.view convertRect:imgview.frame fromView:self.myScroll];
     while (num-- > 0) {
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changCharge:)];
          NSString *imgPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:[NSString stringWithFormat:@"img%ld.jpg",(long)a++]];
@@ -289,6 +357,7 @@
         self.myScroll.contentSize = CGSizeMake(sW*num, sH);
         [imgview addGestureRecognizer:tap];
         imgview.userInteractionEnabled = YES;
+      newRect = [self.view convertRect:imgview.frame fromView:imgview];
         [self.myScroll addSubview:imgview];
     }
     
@@ -297,7 +366,10 @@
 - (void)changCharge:(UITapGestureRecognizer *)tapa {
     UIImageView *imgV = (UIImageView *)tapa.view;
     self.myImageview.image = imgV.image;
+    [self.myImageview stopAnimating];
 }
+
+
 //- (UIImage *)thumbnailWithImage:(UIImage *)image frame:(CGRect)aframe
 //{
 //    UIImage *newImage;
@@ -317,15 +389,17 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    isFullScreen = !isFullScreen;
-    UITouch *touch = [touches anyObject];
-    CGPoint touchPoint = [touch locationInView:self.view];
-    if (CGRectContainsPoint(self.myImageview.frame, touchPoint)) {
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:1.0];
-        self.myImageview.frame = CGRectMake(w/4, h/4, w/2, h/2);
-        [UIView commitAnimations];
-    }
+//    isFullScreen = !isFullScreen;
+//    UITouch *touch = [touches anyObject];
+//    
+//    CGPoint touchPoint = [touch locationInView:self.view];
+//    if (CGRectContainsPoint(self.myImageview.frame, touchPoint)) {
+//        [UIView beginAnimations:nil context:nil];
+//        [UIView setAnimationDuration:1.0];
+//        self.myImageview.frame = CGRectMake(w/4, h/4, w/2, h/2);
+//        [UIView commitAnimations];
+//    }
+    
 }
 
 - (void) pinchView:(UIPinchGestureRecognizer *)pinchGestureRecognizer
@@ -333,18 +407,50 @@
     UIView *view = pinchGestureRecognizer.view;
     if (pinchGestureRecognizer.state == UIGestureRecognizerStateBegan || pinchGestureRecognizer.state == UIGestureRecognizerStateChanged) {
         view.transform = CGAffineTransformScale(view.transform, pinchGestureRecognizer.scale, pinchGestureRecognizer.scale);
-        pinchGestureRecognizer.scale = 1;
+        scaleInt = pinchGestureRecognizer.scale;
+        pinchGestureRecognizer.scale = 1.0;
     }
 }
 
-- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    isFullScreen = !isFullScreen;
-    UITouch *touch = [touches anyObject];
-    CGPoint touchPoint = [touch locationInView:self.view];
-    self.myImageview.center = touchPoint;
-    if (CGRectContainsPoint(self.myScroll.frame, self.myImageview.center)) {
-        [self createScrollImgWithNum:i];
-        self.myImageview.image = nil;
+- (void) handlePan:(UIPanGestureRecognizer*) recognizer
+{
+    self.myImageview.transform = CGAffineTransformIdentity;
+    CGPoint translation = [recognizer translationInView:self.view];
+    CGRect rect = recognizer.view.frame;
+    if (rect.size.width > self.view.frame.size.width/3.0) {
+        rect.size.width -= 10;
+        rect.size.height -= 10/r;
+        self.myImageview.bounds = rect;
     }
+    recognizer.view.center = CGPointMake(recognizer.view.center.x + translation.x,
+                                         recognizer.view.center.y + translation.y);
+   
+    
+    [recognizer setTranslation:CGPointZero inView:self.view];
+
+  
 }
+
+- (void)tapView:(UITapGestureRecognizer *)tap {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    self.myImageview.transform = CGAffineTransformIdentity;
+    self.myImageview.frame = self.view.frame;
+    [UIView commitAnimations];
+  
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+        if (self.myImageview.frame.size.width < self.view.frame.size.width/1.0) {
+            if (self.myImageview.frame.size.width < self.view.frame.size.width/1.5) {
+                if (CGRectIntersectsRect(self.myImageview.frame, self.myScroll.frame)) {
+                    [self createScrollImgWithNum:i];
+                    self.myImageview.image = nil;
+                }
+                
+            }
+               //self.myImageview.frame = self.view.frame;
+        }
+}
+
 @end

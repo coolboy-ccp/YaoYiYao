@@ -1,0 +1,20 @@
+//
+//  YaoYiYao.pch
+//  YaoYiYao
+//
+//  Created by liqunfei on 15/10/13.
+//  Copyright © 2015年 chuchengpeng. All rights reserved.
+//
+
+#ifndef YaoYiYao_pch
+#define YaoYiYao_pch
+#import "AFNetworking.h"
+#if TARGET_IPHONE_SIMULATOR
+#define SIMULATOR 1
+#elif TARGET_OS_IPHONE
+#define SIMULATOR 0
+#endif
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* YaoYiYao_pch */

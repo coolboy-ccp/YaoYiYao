@@ -10,6 +10,10 @@
 		002023301BC763FC0099946A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0020232F1BC763FC0099946A /* AssetsLibrary.framework */; };
 		002023331BC765A90099946A /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002023321BC765A90099946A /* TableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		002023351BC767510099946A /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002023341BC767510099946A /* Photos.framework */; };
+		007B60581BCF875400F461FE /* 月亮代表我的心.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 007B60571BCF875400F461FE /* 月亮代表我的心.mp3 */; settings = {ASSET_TAGS = (); }; };
+		007B605A1BCF875A00F461FE /* 一生有你.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 007B60591BCF875A00F461FE /* 一生有你.mp3 */; settings = {ASSET_TAGS = (); }; };
+		007B605D1BCFA81700F461FE /* LysicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 007B605C1BCFA81700F461FE /* LysicCell.m */; settings = {ASSET_TAGS = (); }; };
+		00C29FCD1BCF480D00763484 /* MusicListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C29FCC1BCF480D00763484 /* MusicListTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		00C809321BB5488D008ED8AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C809311BB5488D008ED8AE /* main.m */; };
 		00C809351BB5488D008ED8AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C809341BB5488D008ED8AE /* AppDelegate.m */; };
 		00C809381BB5488D008ED8AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C809371BB5488D008ED8AE /* ViewController.m */; };
@@ -19,6 +23,29 @@
 		00C8094E1BB5488D008ED8AE /* YaoYiYaoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C8094D1BB5488D008ED8AE /* YaoYiYaoTests.m */; };
 		00C809591BB5488D008ED8AE /* YaoYiYaoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C809581BB5488D008ED8AE /* YaoYiYaoUITests.m */; };
 		00C809691BB54A57008ED8AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00C809681BB54A57008ED8AE /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		00C8BD731BD0A48100954969 /* 我终于失去了你.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00C8BD721BD0A48100954969 /* 我终于失去了你.mp3 */; settings = {ASSET_TAGS = (); }; };
+		00C8BD751BD0A5D100954969 /* 年轮.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 00C8BD741BD0A5D100954969 /* 年轮.lrc */; settings = {ASSET_TAGS = (); }; };
+		00C8BD771BD0A5D600954969 /* 月亮代表我的心.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 00C8BD761BD0A5D600954969 /* 月亮代表我的心.lrc */; settings = {ASSET_TAGS = (); }; };
+		00C8BD791BD0A5DA00954969 /* 我终于失去了你.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 00C8BD781BD0A5DA00954969 /* 我终于失去了你.lrc */; settings = {ASSET_TAGS = (); }; };
+		00C8BD7B1BD0A5DE00954969 /* 一生有你.lrc in Resources */ = {isa = PBXBuildFile; fileRef = 00C8BD7A1BD0A5DE00954969 /* 一生有你.lrc */; settings = {ASSET_TAGS = (); }; };
+		00CB60E41BCCB1E000802BC4 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB60D21BCCB1E000802BC4 /* AFHTTPRequestOperation.m */; settings = {ASSET_TAGS = (); }; };
+		00CB60E51BCCB1E000802BC4 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB60D41BCCB1E000802BC4 /* AFHTTPRequestOperationManager.m */; settings = {ASSET_TAGS = (); }; };
+		00CB60E61BCCB1E000802BC4 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB60D61BCCB1E000802BC4 /* AFHTTPSessionManager.m */; settings = {ASSET_TAGS = (); }; };
+		00CB60E71BCCB1E000802BC4 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB60D91BCCB1E000802BC4 /* AFNetworkReachabilityManager.m */; settings = {ASSET_TAGS = (); }; };
+		00CB60E81BCCB1E000802BC4 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB60DB1BCCB1E000802BC4 /* AFSecurityPolicy.m */; settings = {ASSET_TAGS = (); }; };
+		00CB60E91BCCB1E000802BC4 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB60DD1BCCB1E000802BC4 /* AFURLConnectionOperation.m */; settings = {ASSET_TAGS = (); }; };
+		00CB60EA1BCCB1E000802BC4 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB60DF1BCCB1E000802BC4 /* AFURLRequestSerialization.m */; settings = {ASSET_TAGS = (); }; };
+		00CB60EB1BCCB1E000802BC4 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB60E11BCCB1E000802BC4 /* AFURLResponseSerialization.m */; settings = {ASSET_TAGS = (); }; };
+		00CB60EC1BCCB1E000802BC4 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB60E31BCCB1E000802BC4 /* AFURLSessionManager.m */; settings = {ASSET_TAGS = (); }; };
+		00CB60EF1BCCB64700802BC4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CB60EE1BCCB64700802BC4 /* CoreLocation.framework */; };
+		00CB60F11BCCB65500802BC4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CB60F01BCCB65500802BC4 /* SystemConfiguration.framework */; };
+		00CB60F31BCCB67700802BC4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CB60F21BCCB67700802BC4 /* MobileCoreServices.framework */; };
+		00CB60F51BCCB68300802BC4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CB60F41BCCB68300802BC4 /* Security.framework */; };
+		00CB60F81BCCD50500802BC4 /* YaoYiYaoBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CB60F71BCCD50500802BC4 /* YaoYiYaoBaseRequest.m */; settings = {ASSET_TAGS = (); }; };
+		00CBCACC1BCE043200B35540 /* sound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 00CBCACB1BCE043200B35540 /* sound1.wav */; settings = {ASSET_TAGS = (); }; };
+		00CBCAD51BCE29FE00B35540 /* PlayMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCAD41BCE29FE00B35540 /* PlayMusicViewController.m */; settings = {ASSET_TAGS = (); }; };
+		00CBCAE01BCE564500B35540 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CBCADF1BCE564500B35540 /* WebViewController.m */; settings = {ASSET_TAGS = (); }; };
+		00CBCAE31BCE5D1500B35540 /* 年轮.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 00CBCAE21BCE5D1500B35540 /* 年轮.mp3 */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +70,12 @@
 		002023311BC765A90099946A /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		002023321BC765A90099946A /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		002023341BC767510099946A /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		007B60571BCF875400F461FE /* 月亮代表我的心.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "月亮代表我的心.mp3"; sourceTree = "<group>"; };
+		007B60591BCF875A00F461FE /* 一生有你.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "一生有你.mp3"; sourceTree = "<group>"; };
+		007B605B1BCFA81700F461FE /* LysicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LysicCell.h; sourceTree = "<group>"; };
+		007B605C1BCFA81700F461FE /* LysicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LysicCell.m; sourceTree = "<group>"; };
+		00C29FCB1BCF480D00763484 /* MusicListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicListTableViewController.h; sourceTree = "<group>"; };
+		00C29FCC1BCF480D00763484 /* MusicListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicListTableViewController.m; sourceTree = "<group>"; };
 		00C8092D1BB5488D008ED8AE /* YaoYiYao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YaoYiYao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00C809311BB5488D008ED8AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		00C809331BB5488D008ED8AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,6 +93,43 @@
 		00C809581BB5488D008ED8AE /* YaoYiYaoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YaoYiYaoUITests.m; sourceTree = "<group>"; };
 		00C8095A1BB5488D008ED8AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00C809681BB54A57008ED8AE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		00C8BD721BD0A48100954969 /* 我终于失去了你.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "我终于失去了你.mp3"; sourceTree = "<group>"; };
+		00C8BD741BD0A5D100954969 /* 年轮.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "年轮.lrc"; sourceTree = "<group>"; };
+		00C8BD761BD0A5D600954969 /* 月亮代表我的心.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "月亮代表我的心.lrc"; sourceTree = "<group>"; };
+		00C8BD781BD0A5DA00954969 /* 我终于失去了你.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "我终于失去了你.lrc"; sourceTree = "<group>"; };
+		00C8BD7A1BD0A5DE00954969 /* 一生有你.lrc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "一生有你.lrc"; sourceTree = "<group>"; };
+		00CB60D11BCCB1E000802BC4 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		00CB60D21BCCB1E000802BC4 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		00CB60D31BCCB1E000802BC4 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		00CB60D41BCCB1E000802BC4 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		00CB60D51BCCB1E000802BC4 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		00CB60D61BCCB1E000802BC4 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		00CB60D71BCCB1E000802BC4 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		00CB60D81BCCB1E000802BC4 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		00CB60D91BCCB1E000802BC4 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		00CB60DA1BCCB1E000802BC4 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		00CB60DB1BCCB1E000802BC4 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		00CB60DC1BCCB1E000802BC4 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		00CB60DD1BCCB1E000802BC4 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		00CB60DE1BCCB1E000802BC4 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		00CB60DF1BCCB1E000802BC4 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		00CB60E01BCCB1E000802BC4 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		00CB60E11BCCB1E000802BC4 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		00CB60E21BCCB1E000802BC4 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		00CB60E31BCCB1E000802BC4 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		00CB60ED1BCCB29000802BC4 /* YaoYiYao.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YaoYiYao.pch; sourceTree = "<group>"; };
+		00CB60EE1BCCB64700802BC4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		00CB60F01BCCB65500802BC4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		00CB60F21BCCB67700802BC4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		00CB60F41BCCB68300802BC4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		00CB60F61BCCD50500802BC4 /* YaoYiYaoBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YaoYiYaoBaseRequest.h; sourceTree = "<group>"; };
+		00CB60F71BCCD50500802BC4 /* YaoYiYaoBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YaoYiYaoBaseRequest.m; sourceTree = "<group>"; };
+		00CBCACB1BCE043200B35540 /* sound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound1.wav; sourceTree = "<group>"; };
+		00CBCAD31BCE29FE00B35540 /* PlayMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayMusicViewController.h; sourceTree = "<group>"; };
+		00CBCAD41BCE29FE00B35540 /* PlayMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMusicViewController.m; sourceTree = "<group>"; };
+		00CBCADE1BCE564500B35540 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		00CBCADF1BCE564500B35540 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		00CBCAE21BCE5D1500B35540 /* 年轮.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "年轮.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +137,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CB60F51BCCB68300802BC4 /* Security.framework in Frameworks */,
+				00CB60F31BCCB67700802BC4 /* MobileCoreServices.framework in Frameworks */,
+				00CB60F11BCCB65500802BC4 /* SystemConfiguration.framework in Frameworks */,
+				00CB60EF1BCCB64700802BC4 /* CoreLocation.framework in Frameworks */,
 				002023351BC767510099946A /* Photos.framework in Frameworks */,
 				002023301BC763FC0099946A /* AssetsLibrary.framework in Frameworks */,
 			);
@@ -92,6 +166,11 @@
 		00C809241BB5488D008ED8AE = {
 			isa = PBXGroup;
 			children = (
+				00CBCACB1BCE043200B35540 /* sound1.wav */,
+				00CB60F41BCCB68300802BC4 /* Security.framework */,
+				00CB60F21BCCB67700802BC4 /* MobileCoreServices.framework */,
+				00CB60F01BCCB65500802BC4 /* SystemConfiguration.framework */,
+				00CB60EE1BCCB64700802BC4 /* CoreLocation.framework */,
 				002023341BC767510099946A /* Photos.framework */,
 				0020232F1BC763FC0099946A /* AssetsLibrary.framework */,
 				00C8092F1BB5488D008ED8AE /* YaoYiYao */,
@@ -119,12 +198,24 @@
 				00C809361BB5488D008ED8AE /* ViewController.h */,
 				00C809371BB5488D008ED8AE /* ViewController.m */,
 				00C809681BB54A57008ED8AE /* Main.storyboard */,
+				00CBCADE1BCE564500B35540 /* WebViewController.h */,
+				00CBCADF1BCE564500B35540 /* WebViewController.m */,
 				002023311BC765A90099946A /* TableViewController.h */,
 				002023321BC765A90099946A /* TableViewController.m */,
+				00CB60F61BCCD50500802BC4 /* YaoYiYaoBaseRequest.h */,
+				00CB60F71BCCD50500802BC4 /* YaoYiYaoBaseRequest.m */,
+				00CBCAD31BCE29FE00B35540 /* PlayMusicViewController.h */,
+				00CBCAD41BCE29FE00B35540 /* PlayMusicViewController.m */,
+				00C29FCB1BCF480D00763484 /* MusicListTableViewController.h */,
+				00C29FCC1BCF480D00763484 /* MusicListTableViewController.m */,
+				007B605B1BCFA81700F461FE /* LysicCell.h */,
+				007B605C1BCFA81700F461FE /* LysicCell.m */,
 				00C8093F1BB5488D008ED8AE /* Assets.xcassets */,
 				00C809411BB5488D008ED8AE /* LaunchScreen.storyboard */,
 				00C809441BB5488D008ED8AE /* Info.plist */,
 				00C8093C1BB5488D008ED8AE /* YaoYiYao.xcdatamodeld */,
+				00CBCAE11BCE5D1500B35540 /* music */,
+				00CB60D01BCCB1E000802BC4 /* AFNetworking */,
 				00C809301BB5488D008ED8AE /* Supporting Files */,
 			);
 			path = YaoYiYao;
@@ -134,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				00C809311BB5488D008ED8AE /* main.m */,
+				00CB60ED1BCCB29000802BC4 /* YaoYiYao.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -154,6 +246,47 @@
 				00C8095A1BB5488D008ED8AE /* Info.plist */,
 			);
 			path = YaoYiYaoUITests;
+			sourceTree = "<group>";
+		};
+		00CB60D01BCCB1E000802BC4 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				00CB60D11BCCB1E000802BC4 /* AFHTTPRequestOperation.h */,
+				00CB60D21BCCB1E000802BC4 /* AFHTTPRequestOperation.m */,
+				00CB60D31BCCB1E000802BC4 /* AFHTTPRequestOperationManager.h */,
+				00CB60D41BCCB1E000802BC4 /* AFHTTPRequestOperationManager.m */,
+				00CB60D51BCCB1E000802BC4 /* AFHTTPSessionManager.h */,
+				00CB60D61BCCB1E000802BC4 /* AFHTTPSessionManager.m */,
+				00CB60D71BCCB1E000802BC4 /* AFNetworking.h */,
+				00CB60D81BCCB1E000802BC4 /* AFNetworkReachabilityManager.h */,
+				00CB60D91BCCB1E000802BC4 /* AFNetworkReachabilityManager.m */,
+				00CB60DA1BCCB1E000802BC4 /* AFSecurityPolicy.h */,
+				00CB60DB1BCCB1E000802BC4 /* AFSecurityPolicy.m */,
+				00CB60DC1BCCB1E000802BC4 /* AFURLConnectionOperation.h */,
+				00CB60DD1BCCB1E000802BC4 /* AFURLConnectionOperation.m */,
+				00CB60DE1BCCB1E000802BC4 /* AFURLRequestSerialization.h */,
+				00CB60DF1BCCB1E000802BC4 /* AFURLRequestSerialization.m */,
+				00CB60E01BCCB1E000802BC4 /* AFURLResponseSerialization.h */,
+				00CB60E11BCCB1E000802BC4 /* AFURLResponseSerialization.m */,
+				00CB60E21BCCB1E000802BC4 /* AFURLSessionManager.h */,
+				00CB60E31BCCB1E000802BC4 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		00CBCAE11BCE5D1500B35540 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				00C8BD741BD0A5D100954969 /* 年轮.lrc */,
+				00C8BD781BD0A5DA00954969 /* 我终于失去了你.lrc */,
+				00C8BD761BD0A5D600954969 /* 月亮代表我的心.lrc */,
+				00C8BD7A1BD0A5DE00954969 /* 一生有你.lrc */,
+				00C8BD721BD0A48100954969 /* 我终于失去了你.mp3 */,
+				007B60591BCF875A00F461FE /* 一生有你.mp3 */,
+				007B60571BCF875400F461FE /* 月亮代表我的心.mp3 */,
+				00CBCAE21BCE5D1500B35540 /* 年轮.mp3 */,
+			);
+			path = music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +356,11 @@
 				TargetAttributes = {
 					00C8092C1BB5488D008ED8AE = {
 						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					00C809481BB5488D008ED8AE = {
 						CreatedOnToolsVersion = 7.0;
@@ -259,9 +397,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007B60581BCF875400F461FE /* 月亮代表我的心.mp3 in Resources */,
 				00C809431BB5488D008ED8AE /* LaunchScreen.storyboard in Resources */,
+				00C8BD751BD0A5D100954969 /* 年轮.lrc in Resources */,
 				00C809401BB5488D008ED8AE /* Assets.xcassets in Resources */,
+				00CBCACC1BCE043200B35540 /* sound1.wav in Resources */,
+				00CBCAE31BCE5D1500B35540 /* 年轮.mp3 in Resources */,
+				007B605A1BCF875A00F461FE /* 一生有你.mp3 in Resources */,
+				00C8BD7B1BD0A5DE00954969 /* 一生有你.lrc in Resources */,
 				00C809691BB54A57008ED8AE /* Main.storyboard in Resources */,
+				00C8BD731BD0A48100954969 /* 我终于失去了你.mp3 in Resources */,
+				00C8BD771BD0A5D600954969 /* 月亮代表我的心.lrc in Resources */,
+				00C8BD791BD0A5DA00954969 /* 我终于失去了你.lrc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,11 +433,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CB60E91BCCB1E000802BC4 /* AFURLConnectionOperation.m in Sources */,
+				00CB60E41BCCB1E000802BC4 /* AFHTTPRequestOperation.m in Sources */,
+				00CB60E71BCCB1E000802BC4 /* AFNetworkReachabilityManager.m in Sources */,
+				00CB60EC1BCCB1E000802BC4 /* AFURLSessionManager.m in Sources */,
+				007B605D1BCFA81700F461FE /* LysicCell.m in Sources */,
+				00CB60EA1BCCB1E000802BC4 /* AFURLRequestSerialization.m in Sources */,
 				00C809381BB5488D008ED8AE /* ViewController.m in Sources */,
+				00CB60EB1BCCB1E000802BC4 /* AFURLResponseSerialization.m in Sources */,
 				00C8093E1BB5488D008ED8AE /* YaoYiYao.xcdatamodeld in Sources */,
+				00CBCAE01BCE564500B35540 /* WebViewController.m in Sources */,
 				00C809351BB5488D008ED8AE /* AppDelegate.m in Sources */,
+				00CB60E51BCCB1E000802BC4 /* AFHTTPRequestOperationManager.m in Sources */,
+				00CBCAD51BCE29FE00B35540 /* PlayMusicViewController.m in Sources */,
+				00CB60E81BCCB1E000802BC4 /* AFSecurityPolicy.m in Sources */,
 				002023331BC765A90099946A /* TableViewController.m in Sources */,
+				00CB60F81BCCD50500802BC4 /* YaoYiYaoBaseRequest.m in Sources */,
 				00C809321BB5488D008ED8AE /* main.m in Sources */,
+				00CB60E61BCCB1E000802BC4 /* AFHTTPSessionManager.m in Sources */,
+				00C29FCD1BCF480D00763484 /* MusicListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +584,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: xiangyang li (DRQX5JH3WJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangyang li (DRQX5JH3WJ)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = YaoYiYao/YaoYiYao.pch;
 				INFOPLIST_FILE = YaoYiYao/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -438,6 +601,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: xiangyang li (DRQX5JH3WJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: xiangyang li (DRQX5JH3WJ)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = YaoYiYao/YaoYiYao.pch;
 				INFOPLIST_FILE = YaoYiYao/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

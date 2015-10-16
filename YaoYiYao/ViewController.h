@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YaoYiYaoBaseRequest.h"
 @interface ViewController : UIViewController
 
 
